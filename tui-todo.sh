@@ -47,6 +47,13 @@ edit() {
 # function show todo
 show() {
     echo "inside show function"
+    while read -r line
+    do
+        # echo "$line"
+        if [[ -n $line ]]; then
+            echo $line
+        fi
+    done < $TODO_FILES
 }
 
 
@@ -55,4 +62,4 @@ pretty_show() {
     echo "inside pretify todo list"
 }
 
-create
+show

@@ -18,7 +18,7 @@
 
 # Technologies
 ## use bash
-## 
+## or python
 
 # Project tracking
 - [x] create todo
