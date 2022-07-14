@@ -9,7 +9,7 @@ PS3='Choose one action to perform:'
 todo() {
     select option in "create" "edit" "show" "exit"
     do 
-        echo "The option chosen is: $option"
+        # echo "The option chosen is: $option"
         case "$option" in
             ("create") create
             ;;
@@ -42,7 +42,6 @@ edit() {
 
 # function show todo
 show() {
-    echo "inside show function"
     # cat $TODO_FILES | grep "\- \[ \].*"
     while read -r line
     do
