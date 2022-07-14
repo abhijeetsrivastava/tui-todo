@@ -30,36 +30,29 @@ todo() {
 create() {
     echo "Todo: "
     read thing
-    echo "- [ ] $thing" >> $TODO_FILES && echo "Created todo"
+    echo "- [ ] $thing" >> $TODO_FILES && echo "Created todo in $TODO_FILES"
 }
 
 
 # function to edit todo
-# set schedule todo
-# set deadline for todo
 edit() {
-    echo "inside edit function"
+    echo "edit from within vim using telescope"
 }
-
-# function todo state
 
 
 # function show todo
 show() {
     echo "inside show function"
+    # cat $TODO_FILES | grep "\- \[ \].*"
     while read -r line
     do
-        # echo "$line"
-        if [[ -n $line ]]; then
-            echo $line
-        fi
+        case $line in
+            "- [ ]"*)
+                echo $line
+            ;;
+        esac
     done < $TODO_FILES
 }
 
 
-# function pretify todo list
-pretty_show() {
-    echo "inside pretify todo list"
-}
-
-show
+todo
