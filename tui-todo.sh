@@ -1,15 +1,16 @@
 #!/bin/zsh
 
 # default todo file list
-# TODO move configuration to an associative array
-TODO_FILES="./todo.md"
+declare -A TODO_CONFIG=(
+  [FILE]="$HOME/personal/notes/agenda/inbox.md"
+  [DIR]="$HOME/personal/notes/agenda/"
+)
 
 PS3='Choose one action to perform:'
 
 todo() {
     select option in "create" "edit" "show" "exit"
     do 
-        # echo "The option chosen is: $option"
         case "$option" in
             ("create") create
             ;;
@@ -30,7 +31,7 @@ todo() {
 create() {
     echo "Todo: "
     read thing
-    echo "- [ ] $thing" >> $TODO_FILES && echo "Created todo in $TODO_FILES"
+    echo "- [ ] $thing" >> $TODO_CONFIG[FILE] && echo "Created todo in $TODO_CONFIG[FILE]"
 }
 
 
@@ -42,7 +43,7 @@ edit() {
 
 # function show todo
 show() {
-    # cat $TODO_FILES | grep "\- \[ \].*"
+    # cat $TODO_CONFIG[DIR]/*.md |grep "\- \[ \].*"
     while read -r line
     do
         case $line in
@@ -50,7 +51,7 @@ show() {
                 echo $line
             ;;
         esac
-    done < $TODO_FILES
+    done < $TODO_CONFIG[DIR]/*.md
 }
 
 
