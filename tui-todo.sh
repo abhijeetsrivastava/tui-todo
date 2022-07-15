@@ -2,8 +2,8 @@
 
 # default todo file list
 declare -A TODO_CONFIG=(
-  [FILE]="$HOME/personal/notes/agenda/inbox.md"
-  [DIR]="$HOME/personal/notes/agenda/"
+  [FILE]="$HOME/agenda/inbox.md"
+  [DIR]="$HOME/agenda/"
 )
 
 PS3='Choose one action to perform:'
